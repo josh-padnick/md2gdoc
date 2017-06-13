@@ -100,11 +100,25 @@ function insertHeader(text, depth) {
   var doc = DocumentApp.getActiveDocument();
   var body = doc.getBody();
   var el = body.insertParagraph(0, text)
-  if (depth == 1) {
-    el.setHeading(DocumentApp.ParagraphHeading.HEADING1);
-  }
-  else if (depth == 2) {
-    el.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  switch (depth) {
+    case 1:
+      el.setHeading(DocumentApp.ParagraphHeading.HEADING1);
+      break;
+    case 2:
+      el.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+      break;
+    case 3:
+      el.setHeading(DocumentApp.ParagraphHeading.HEADING3);
+      break;
+    case 4:
+      el.setHeading(DocumentApp.ParagraphHeading.HEADING4);
+      break;
+    case 5:
+      el.setHeading(DocumentApp.ParagraphHeading.HEADING5);
+      break;
+    default:
+      // Paragraph will be unformatted
   }
 }
 
