@@ -20,14 +20,10 @@
  *     run in AuthMode.FULL, but onOpen triggers may be AuthMode.LIMITED or
  *     AuthMode.NONE.)
  */
-function onInstall(e) {
-  var text1 = "hello"
-  var text2 = "## Hello \n"
-  text2 = text2 + "This is a *test*\n";
-  
+function generateGdoc(markdownText) {  
   var lexer = new marked.Lexer();
   var parser = new marked.Parser();
-  var tokens = lexer.lex(text2);
+  var tokens = lexer.lex(markdownText);
   tokens2gdoc(tokens);
 }
 
